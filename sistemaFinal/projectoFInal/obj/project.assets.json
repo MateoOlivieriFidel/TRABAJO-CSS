@@ -10818,11 +10818,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mateo\\source\\repos\\projectoFInal\\projectoFInal\\projectoFInal.csproj",
+      "projectUniqueName": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\projectoFInal.csproj",
       "projectName": "projectoFInal",
-      "projectPath": "C:\\Users\\mateo\\source\\repos\\projectoFInal\\projectoFInal\\projectoFInal.csproj",
+      "projectPath": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\projectoFInal.csproj",
       "packagesPath": "C:\\Users\\mateo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mateo\\source\\repos\\projectoFInal\\projectoFInal\\obj\\",
+      "outputPath": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\visualstudio\\sdk\\NuGetPackages"

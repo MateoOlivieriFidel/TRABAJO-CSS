@@ -9,59 +9,67 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = projectoFInal
 build_property.RootNamespace = projectoFInal
-build_property.ProjectDir = C:\Users\mateo\source\repos\projectoFInal\projectoFInal\
+build_property.ProjectDir = D:\Games\PROJECTO\ProjectoFinalCYS\sistemaFinal\projectoFInal\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\mateo\source\repos\projectoFInal\projectoFInal
+build_property.MSBuildProjectDirectory = D:\Games\PROJECTO\ProjectoFinalCYS\sistemaFinal\projectoFInal
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/mateo/source/repos/projectoFInal/projectoFInal/Views/Home/Index.cshtml]
+[D:/Games/PROJECTO/ProjectoFinalCYS/sistemaFinal/projectoFInal/Views/Acceso/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Games/PROJECTO/ProjectoFinalCYS/sistemaFinal/projectoFInal/Views/Acceso/Registrar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXFJlZ2lzdHJhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Games/PROJECTO/ProjectoFinalCYS/sistemaFinal/projectoFInal/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mateo/source/repos/projectoFInal/projectoFInal/Views/Home/Privacy.cshtml]
+[D:/Games/PROJECTO/ProjectoFinalCYS/sistemaFinal/projectoFInal/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mateo/source/repos/projectoFInal/projectoFInal/Views/Shared/Error.cshtml]
+[D:/Games/PROJECTO/ProjectoFinalCYS/sistemaFinal/projectoFInal/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mateo/source/repos/projectoFInal/projectoFInal/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Games/PROJECTO/ProjectoFinalCYS/sistemaFinal/projectoFInal/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mateo/source/repos/projectoFInal/projectoFInal/Views/Usuarios/Create.cshtml]
+[D:/Games/PROJECTO/ProjectoFinalCYS/sistemaFinal/projectoFInal/Views/Usuarios/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mateo/source/repos/projectoFInal/projectoFInal/Views/Usuarios/Delete.cshtml]
+[D:/Games/PROJECTO/ProjectoFinalCYS/sistemaFinal/projectoFInal/Views/Usuarios/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mateo/source/repos/projectoFInal/projectoFInal/Views/Usuarios/Details.cshtml]
+[D:/Games/PROJECTO/ProjectoFinalCYS/sistemaFinal/projectoFInal/Views/Usuarios/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mateo/source/repos/projectoFInal/projectoFInal/Views/Usuarios/Edit.cshtml]
+[D:/Games/PROJECTO/ProjectoFinalCYS/sistemaFinal/projectoFInal/Views/Usuarios/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mateo/source/repos/projectoFInal/projectoFInal/Views/Usuarios/Index.cshtml]
+[D:/Games/PROJECTO/ProjectoFinalCYS/sistemaFinal/projectoFInal/Views/Usuarios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mateo/source/repos/projectoFInal/projectoFInal/Views/_ViewImports.cshtml]
+[D:/Games/PROJECTO/ProjectoFinalCYS/sistemaFinal/projectoFInal/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mateo/source/repos/projectoFInal/projectoFInal/Views/_ViewStart.cshtml]
+[D:/Games/PROJECTO/ProjectoFinalCYS/sistemaFinal/projectoFInal/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/mateo/source/repos/projectoFInal/projectoFInal/Views/Shared/_Layout.cshtml]
+[D:/Games/PROJECTO/ProjectoFinalCYS/sistemaFinal/projectoFInal/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ih19aqwpzd

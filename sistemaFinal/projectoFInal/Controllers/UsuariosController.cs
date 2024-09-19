@@ -9,6 +9,7 @@ using projectoFInal.Models;
 
 namespace projectoFInal.Controllers
 {
+
     public class UsuariosController : Controller
     {
         private readonly DPContext _context;

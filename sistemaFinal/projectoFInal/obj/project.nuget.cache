@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/CtweHAJ/c0=",
+  "dgSpecHash": "YViBIrW7INw=",
   "success": true,
-  "projectFilePath": "C:\\Users\\mateo\\source\\repos\\projectoFInal\\projectoFInal\\projectoFInal.csproj",
+  "projectFilePath": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\projectoFInal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mateo\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\mateo\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

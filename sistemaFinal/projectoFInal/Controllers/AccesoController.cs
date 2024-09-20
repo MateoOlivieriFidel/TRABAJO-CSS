@@ -23,51 +23,78 @@ namespace projectoFInal.Controllers
         {
             return View();
         }
+        public ActionResult Hub()
+        {
+            // Verificar si el usuario está en sesión
+            var usuarioJson = HttpContext.Session.GetString("usuario");
+            if (string.IsNullOrEmpty(usuarioJson))
+            {
+                // Si no hay usuario en sesión, redirigir al login
+                return RedirectToAction("Login", "Acceso");
+            }
+
+            // Convertir el JSON de la sesión en un objeto de usuario
+            users oUsuario = JsonConvert.DeserializeObject<users>(usuarioJson);
+
+            // Aquí podrías pasar información adicional al HUB, como el nombre del usuario
+            ViewBag.NombreUsuario = oUsuario.email; // o algún otro dato relevante
+
+            return View();
+        }
+
         [HttpPost]
-        //AQUI CREARE EL REGISTRO DE USUARIOS
         public IActionResult Registrar(users oUsuario)
         {
             bool registrado;
             string mensaje;
 
-            if (oUsuario.contraseña == oUsuario.confirmarContraseña) //TIENES QUE CONFIRMAR CONTRASEÑAS
+            oUsuario.tipoUser = 0;
+
+            // Verifica si las contraseñas coinciden
+            if (oUsuario.contraseña != oUsuario.confirmarContraseña)
             {
-                oUsuario.contraseña = ConvertirSha256(oUsuario.contraseña); //ACA ESTOY CONVIRTIENDO A LA CONTRASEÑA A SHA256 PARA CIFRARLA
-            }
-            else //EN CASO DE NO HABER CONFIRMADO BIEN LAS CONTRASEÑAS SIMPLEMENTE MONSTRAR UN MENSAJE Y SALIR
-            {
-                ViewData["Mensaje"] = "Las contraseñas no coinciden";
+                ViewData["MensajeError"] = "Las contraseñas no coinciden";
                 return View();
             }
-            //CONECTAR A BASE DE DATOS
+
+            // Convierte la contraseña a SHA256
+            oUsuario.contraseña = ConvertirSha256(oUsuario.contraseña);
+
+            // Conectar a la base de datos
             using (SqlConnection cn = new SqlConnection(cadena))
             {
-                //COMANDO DE REGISTRO
-                SqlCommand cmd = new SqlCommand("RegistrarUsuario", cn);
-                //PASO PARAMETROS A LA BASE DE DATOS
+                // Configurar el comando para llamar al procedimiento almacenado
+                SqlCommand cmd = new SqlCommand("RegistrarUsuario", cn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                // Pasar los parámetros al procedimiento almacenado
                 cmd.Parameters.AddWithValue("email", oUsuario.email);
                 cmd.Parameters.AddWithValue("contraseña", oUsuario.contraseña);
                 cmd.Parameters.AddWithValue("tipoUser", oUsuario.tipoUser);
                 cmd.Parameters.Add("registrado", SqlDbType.Bit).Direction = ParameterDirection.Output;
                 cmd.Parameters.Add("mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
-                cmd.CommandType = CommandType.StoredProcedure;
 
-                cn.Open(); 
+                // Ejecutar el comando
+                cn.Open();
                 cmd.ExecuteNonQuery();
 
+                // Obtener los valores de los parámetros de salida
                 registrado = Convert.ToBoolean(cmd.Parameters["registrado"].Value);
                 mensaje = cmd.Parameters["mensaje"].Value.ToString();
             }
-            ViewData["Mensaje"] = mensaje;
+
+            // Manejar el resultado del registro
             if (registrado)
             {
-                RedirectToAction("Logic", "Acceso");
+                return RedirectToAction("Login", "Acceso");
             }
             else
             {
+                ViewData["MensajeError"] = mensaje; // Asegúrate de que el mensaje se muestra correctamente
                 return View();
             }
-            return View();
         }
         [HttpPost]
         //AQUI ESTA GUARDADO EL METODO PARA LOGEARSE
@@ -97,11 +124,11 @@ namespace projectoFInal.Controllers
 
                 HttpContext.Session.SetString("usuario", usuarioJson);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Hub", "Acceso");
             }
             else
             {
-                ViewData["Mensaje"] = "usuario no encontrado";
+                ViewData["MensajeError"] = "Usuario no encontrado o contraseña incorrecta.";
                 return View();
             }
         }

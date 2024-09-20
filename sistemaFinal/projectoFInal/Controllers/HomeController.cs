@@ -22,6 +22,13 @@ namespace projectoFInal.Controllers
         {
             return View();
         }
+        public ActionResult CerrarSesion()
+        {
+            HttpContext.Session.Remove("usuario");
+
+            return RedirectToAction("Login", "Acceso");
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

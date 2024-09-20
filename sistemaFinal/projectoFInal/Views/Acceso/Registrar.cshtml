@@ -1,15 +1,60 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Registrar</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="~/css/login.css" rel="stylesheet" />
+    <title>Registro</title>
 </head>
 <body>
+    <div id="login">
+        <h3 class="text-center text-white pt-5">Registro de Usuario</h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+
+                        <!-- Mostrar mensajes de error si existen -->
+                        @if (ViewData["MensajeError"] != null)
+                        {
+                            <div class="alert alert-danger text-center">
+                                @ViewData["MensajeError"]
+                            </div>
+                        }
+
+                        <!-- Formulario de registro -->
+                        <form action="@Url.Action("Registrar", "Acceso")" method="post">
+                            <h3 class="text-center text-info">Registrarse</h3>
+
+                            <div class="form-group">
+                                <label for="username" class="text-info">Usuario:</label><br>
+                                <input type="text" name="email" id="username" class="form-control input_pass" placeholder="Nombre de Usuario" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Contraseña:</label><br>
+                                <input type="password" name="contraseña" id="password" class="form-control input_pass" placeholder="Contraseña" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmarContraseña" class="text-info">Confirmar Contraseña:</label><br>
+                                <input type="password" name="confirmarContraseña" id="confirmarContraseña" class="form-control input_pass" placeholder="Confirmar Contraseña" required>
+                            </div>
+                            <div class="form-group text-center">
+                                <button type="submit" name="button" class="btn login_btn">Registrarse</button>
+                            </div>
+                            <div id="register-link" class="text-center mt-3">
+                                <a href="@Url.Action("Login", "Acceso")" class="btn btn-link">¿Ya tienes una cuenta? Inicia sesión</a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

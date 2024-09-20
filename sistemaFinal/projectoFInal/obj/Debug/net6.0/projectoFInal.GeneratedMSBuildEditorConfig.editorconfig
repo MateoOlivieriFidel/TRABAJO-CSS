@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Games\PROJECTO\ProjectoFinalCYS\sistemaFinal\projectoFInal
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Games/PROJECTO/ProjectoFinalCYS/sistemaFinal/projectoFInal/Views/Acceso/Hub.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXEh1Yi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Games/PROJECTO/ProjectoFinalCYS/sistemaFinal/projectoFInal/Views/Acceso/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

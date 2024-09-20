@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|d:\\games\\projecto\\projectofinalcys\\sistemafinal\\projectofinal\\views\\acceso\\registrar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|solutionrelative:projectofinal\\views\\acceso\\registrar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|d:\\games\\projecto\\projectofinalcys\\sistemafinal\\projectofinal\\views\\acceso\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|solutionrelative:projectofinal\\views\\acceso\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|d:\\games\\projecto\\projectofinalcys\\sistemafinal\\projectofinal\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|solutionrelative:projectofinal\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|d:\\games\\projecto\\projectofinalcys\\sistemafinal\\projectofinal\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|solutionrelative:projectofinal\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|d:\\games\\projecto\\projectofinalcys\\sistemafinal\\projectofinal\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|solutionrelative:projectofinal\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,19 +26,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Registrar.cshtml",
+              "DocumentMoniker": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Views\\Acceso\\Registrar.cshtml",
+              "RelativeDocumentMoniker": "projectoFInal\\Views\\Acceso\\Registrar.cshtml",
+              "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Views\\Acceso\\Registrar.cshtml",
+              "RelativeToolTip": "projectoFInal\\Views\\Acceso\\Registrar.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACMAAACMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-19T23:52:08.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Views\\Acceso\\Login.cshtml",
+              "RelativeDocumentMoniker": "projectoFInal\\Views\\Acceso\\Login.cshtml",
+              "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Views\\Acceso\\Login.cshtml",
+              "RelativeToolTip": "projectoFInal\\Views\\Acceso\\Login.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-19T23:51:58.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "users.cs",
               "DocumentMoniker": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Models\\users.cs",
               "RelativeDocumentMoniker": "projectoFInal\\Models\\users.cs",
               "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Models\\users.cs",
               "RelativeToolTip": "projectoFInal\\Models\\users.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-19T03:39:36.383Z",
+              "WhenOpened": "2024-09-19T23:21:49.297Z",
               "EditorCaption": ""
             },
             {
@@ -45,22 +75,9 @@
               "RelativeDocumentMoniker": "projectoFInal\\Controllers\\AccesoController.cs",
               "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Controllers\\AccesoController.cs",
               "RelativeToolTip": "projectoFInal\\Controllers\\AccesoController.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAwwBUAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAYwFoAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-19T02:52:07.035Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Views\\Acceso\\Login.cshtml",
-              "RelativeDocumentMoniker": "projectoFInal\\Views\\Acceso\\Login.cshtml",
-              "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Views\\Acceso\\Login.cshtml",
-              "RelativeToolTip": "projectoFInal\\Views\\Acceso\\Login.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABwAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-19T02:16:21.323Z",
               "EditorCaption": ""
             }
           ]

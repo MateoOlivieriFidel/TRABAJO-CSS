@@ -3,32 +3,139 @@
 }
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <title>Panel Principal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub - Gestión de Salas</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- Estilos Personalizados -->
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .header, .footer {
+            background-color: #007bff; /* Azul */
+            color: white;
+            padding: 20px;
+            text-align: left;
+            border: 2px solid white;
+        }
+
+            .header h2 {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 600;
+                margin-bottom: 10px;
+            }
+
+            .header .text-right {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+            }
+
+        .main-content {
+            flex: 1;
+            background-color: #f8f9fa; /* Fondo gris claro */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-custom {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: white;
+            border: 2px solid #007bff;
+            color: #007bff;
+            font-weight: bold;
+            transition: 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+            .btn-custom:hover {
+                background-color: #007bff;
+                color: white;
+            }
+
+        .logout-link {
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+            .logout-link:hover {
+                color: #f8f9fa;
+            }
+
+        .footer p {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .button-container {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h2 class="mt-5">Bienvenido, @ViewBag.NombreUsuario</h2>
 
-        <div class="row mt-3">
-            <div class="col-md-4">
-                <a href="@Url.Action("Perfil", "Usuario")" class="btn btn-primary btn-block">Mi Perfil</a>
-            </div>
-            <div class="col-md-4">
-                <a href="@Url.Action("Modulo1", "Funciones")" class="btn btn-secondary btn-block">Módulo 1</a>
-            </div>
-            <div class="col-md-4">
-                <a href="@Url.Action("Modulo2", "Funciones")" class="btn btn-secondary btn-block">Módulo 2</a>
-            </div>
+    <div class="header">
+        <h2>Bienvenido, @ViewBag.NombreUsuario</h2>
+
+        <div class="text-right">
+            <a class="logout-link" href="@Url.Action("CerrarSesion", "Home")">Salir</a>
         </div>
 
-        <div class="row mt-3">
-            <div class="col-md-4">
-                li>@Html.ActionLink("Salir", "CerrarSesion", "Home")</li>
-            </div>
+        <div class="button-container">
+            <button class="btn btn-custom" id="btnMostrarSalas">Mostrar Salas</button>
+            <button class="btn btn-custom" id="btnReservarSala">Hacer una Reserva</button>
         </div>
     </div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <div id="contentDisplay">
+            <!-- Aquí se mostrarán las salas o el formulario de reserva -->
+            <p>Aquí se mostrarán las salas...</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Gestión de Salas de Conferencias</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Script para cambiar el contenido -->
+    <script>
+        $(document).ready(function () {
+            // Mostrar Salas por defecto
+            $('#contentDisplay').html('<p>Aquí se mostrarán las salas...</p>');
+
+            // Cambiar contenido según el botón
+            $('#btnMostrarSalas').click(function () {
+                $('#contentDisplay').html('<p>Aquí se mostrarán las salas...</p>');
+            });
+
+            $('#btnReservarSala').click(function () {
+                $('#contentDisplay').html('<p>Formulario de reserva...</p>');
+            });
+        });
+    </script>
 </body>
 </html>

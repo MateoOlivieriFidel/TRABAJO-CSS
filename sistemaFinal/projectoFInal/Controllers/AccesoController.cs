@@ -100,28 +100,28 @@ namespace projectoFInal.Controllers
         //AQUI ESTA GUARDADO EL METODO PARA LOGEARSE
         public ActionResult Login(users oUsuario)
         {
-            oUsuario.contraseña = ConvertirSha256(oUsuario.contraseña); //aqui cifro la contraseña porque guardo las contras cifradas
-            //conectar
+            oUsuario.contraseña = ConvertirSha256(oUsuario.contraseña); // Cifro la contraseña
+                                                                        // Conectar
             using (SqlConnection cn = new SqlConnection(cadena))
             {
-                //aqui llamo a mi procedimiento de la base de datos validar user
+                // Llamo a mi procedimiento de la base de datos validar user
                 SqlCommand cmd = new SqlCommand("validarUser", cn);
-                //aqui añado los valores al procedimiento
+                // Añadir los valores al procedimiento
                 cmd.Parameters.AddWithValue("email", oUsuario.email);
                 cmd.Parameters.AddWithValue("contraseña", oUsuario.contraseña);
-                //ejecuto
+                // Ejecutar
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cn.Open();
-                cmd.ExecuteNonQuery();
-                oUsuario.IdUsuario = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+                oUsuario.IdUsuario = Convert.ToInt32(cmd.ExecuteScalar()?.ToString() ?? "0"); // Obtener el IdUsuario
             }
+
             if (oUsuario.IdUsuario != 0)
             {
-
-
+                // Guardar en TempData
+                TempData["IdUsuario"] = oUsuario.IdUsuario;
+                // Guardar el usuario en la sesión
                 string usuarioJson = JsonConvert.SerializeObject(oUsuario);
-
                 HttpContext.Session.SetString("usuario", usuarioJson);
 
                 return RedirectToAction("Hub", "Acceso");
@@ -132,6 +132,25 @@ namespace projectoFInal.Controllers
                 return View();
             }
         }
+
+        //OBTENER ID USUARIO
+        [HttpGet]
+        public JsonResult ObtenerIdUsuario()
+        {
+            // Verificar si el usuario está almacenado en la sesión
+            var usuarioJson = HttpContext.Session.GetString("usuario");
+
+            if (!string.IsNullOrEmpty(usuarioJson))
+            {
+                var oUsuario = JsonConvert.DeserializeObject<users>(usuarioJson);
+                // Retornar el IdUsuario como parte de un objeto JSON
+                return Json(new { IdUsuario = oUsuario.IdUsuario });
+            }
+
+            // Si no hay usuario en la sesión, devolver un valor por defecto (IdUsuario = 0)
+            return Json(new { IdUsuario = 0 });
+        }
+
 
         //ACA ESTA EL METODO PARA CIFRAR CONTRASEÑAS
         public static string ConvertirSha256(string texto)

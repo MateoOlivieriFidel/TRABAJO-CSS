@@ -8,5 +8,6 @@ namespace projectoFInal.Models
         public int Id { get; set; }
         public string? NombreUsuario { get; set; }
         public string? Clave { get; set; }
+        public object IdUsuario { get; internal set; }
     }
 }

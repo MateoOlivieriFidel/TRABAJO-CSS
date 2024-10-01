@@ -3,16 +3,44 @@
   "WorkspaceRootPath": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|d:\\games\\projecto\\projectofinalcys\\sistemafinal\\projectofinal\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|solutionrelative:projectofinal\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|d:\\games\\projecto\\projectofinalcys\\sistemafinal\\projectofinal\\controllers\\salascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|solutionrelative:projectofinal\\controllers\\salascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|d:\\games\\projecto\\projectofinalcys\\sistemafinal\\projectofinal\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|solutionrelative:projectofinal\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|d:\\games\\projecto\\projectofinalcys\\sistemafinal\\projectofinal\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|solutionrelative:projectofinal\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|d:\\games\\projecto\\projectofinalcys\\sistemafinal\\projectofinal\\views\\acceso\\hub.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|solutionrelative:projectofinal\\views\\acceso\\hub.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|d:\\games\\projecto\\projectofinalcys\\sistemafinal\\projectofinal\\models\\reservas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|solutionrelative:projectofinal\\models\\reservas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|d:\\games\\projecto\\projectofinalcys\\sistemafinal\\projectofinal\\models\\sala.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|solutionrelative:projectofinal\\models\\sala.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|d:\\games\\projecto\\projectofinalcys\\sistemafinal\\projectofinal\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|solutionrelative:projectofinal\\controllers\\accesocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|d:\\games\\projecto\\projectofinalcys\\sistemafinal\\projectofinal\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|solutionrelative:projectofinal\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|d:\\games\\projecto\\projectofinalcys\\sistemafinal\\projectofinal\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|solutionrelative:projectofinal\\models\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|d:\\games\\projecto\\projectofinalcys\\sistemafinal\\projectofinal\\models\\notificacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA5F9CE9-AC6A-4CA3-B6EC-EFD85849BADB}|projectoFInal\\projectoFInal.csproj|solutionrelative:projectofinal\\models\\notificacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,20 +50,44 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Sala.cs",
-              "DocumentMoniker": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Models\\Sala.cs",
-              "RelativeDocumentMoniker": "projectoFInal\\Models\\Sala.cs",
-              "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Models\\Sala.cs",
-              "RelativeToolTip": "projectoFInal\\Models\\Sala.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA5AAAAAAAAAA==",
+              "Title": "SalasController.cs",
+              "DocumentMoniker": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Controllers\\SalasController.cs",
+              "RelativeDocumentMoniker": "projectoFInal\\Controllers\\SalasController.cs",
+              "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Controllers\\SalasController.cs",
+              "RelativeToolTip": "projectoFInal\\Controllers\\SalasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T14:46:07.568Z",
+              "WhenOpened": "2024-09-27T14:52:19.378Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "users.cs",
+              "DocumentMoniker": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Models\\users.cs",
+              "RelativeDocumentMoniker": "projectoFInal\\Models\\users.cs",
+              "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Models\\users.cs",
+              "RelativeToolTip": "projectoFInal\\Models\\users.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T18:23:26.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "projectoFInal\\Models\\Usuario.cs",
+              "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Models\\Usuario.cs",
+              "RelativeToolTip": "projectoFInal\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T16:47:59.287Z"
             },
             {
               "$type": "Document",
@@ -45,23 +97,85 @@
               "RelativeDocumentMoniker": "projectoFInal\\Controllers\\AccesoController.cs",
               "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Controllers\\AccesoController.cs",
               "RelativeToolTip": "projectoFInal\\Controllers\\AccesoController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAASwCQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T14:44:03.004Z",
+              "WhenOpened": "2024-09-26T15:57:53.082Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SalasController.cs",
-              "DocumentMoniker": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Controllers\\SalasController.cs",
-              "RelativeDocumentMoniker": "projectoFInal\\Controllers\\SalasController.cs",
-              "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Controllers\\SalasController.cs",
-              "RelativeToolTip": "projectoFInal\\Controllers\\SalasController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwCUAAABFAAAAAAAAAA==",
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "projectoFInal\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "projectoFInal\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T14:07:49.184Z",
+              "WhenOpened": "2024-09-26T15:57:27.873Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Reservas.cs",
+              "DocumentMoniker": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Models\\Reservas.cs",
+              "RelativeDocumentMoniker": "projectoFInal\\Models\\Reservas.cs",
+              "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Models\\Reservas.cs",
+              "RelativeToolTip": "projectoFInal\\Models\\Reservas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T01:26:22.664Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReservasController.cs",
+              "DocumentMoniker": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Controllers\\ReservasController.cs",
+              "RelativeDocumentMoniker": "projectoFInal\\Controllers\\ReservasController.cs",
+              "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Controllers\\ReservasController.cs",
+              "RelativeToolTip": "projectoFInal\\Controllers\\ReservasController.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAowPQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T01:21:59.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Hub.cshtml",
+              "DocumentMoniker": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Views\\Acceso\\Hub.cshtml",
+              "RelativeDocumentMoniker": "projectoFInal\\Views\\Acceso\\Hub.cshtml",
+              "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Views\\Acceso\\Hub.cshtml",
+              "RelativeToolTip": "projectoFInal\\Views\\Acceso\\Hub.cshtml",
+              "ViewState": "AgIAADcBAAAAAAAAAAAAALcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-23T13:14:44.855Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Notificacion.cs",
+              "DocumentMoniker": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Models\\Notificacion.cs",
+              "RelativeDocumentMoniker": "projectoFInal\\Models\\Notificacion.cs",
+              "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Models\\Notificacion.cs",
+              "RelativeToolTip": "projectoFInal\\Models\\Notificacion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T22:04:23.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Sala.cs",
+              "DocumentMoniker": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Models\\Sala.cs",
+              "RelativeDocumentMoniker": "projectoFInal\\Models\\Sala.cs",
+              "ToolTip": "D:\\Games\\PROJECTO\\ProjectoFinalCYS\\sistemaFinal\\projectoFInal\\Models\\Sala.cs",
+              "RelativeToolTip": "projectoFInal\\Models\\Sala.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T14:46:07.568Z"
             }
           ]
         }

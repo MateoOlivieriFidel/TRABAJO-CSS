@@ -20,33 +20,49 @@ namespace projectoFInal.Controllers
         {
             List<Sala> listaSalas = new List<Sala>();
 
-            using (SqlConnection cn = new SqlConnection(cadena))
+            try
             {
-                SqlCommand cmd = new SqlCommand("ObtenerSalas", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cn.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                while (dr.Read())
+                using (SqlConnection cn = new SqlConnection(cadena))
                 {
-                    Sala sala = new Sala
-                    {
-                        Id = Convert.ToInt32(dr["IdSala"]), 
-                        Nombre = dr["Nombre"].ToString(),
-                        Ubicacion = dr["Ubicacion"].ToString(),
-                        Capacidad = Convert.ToInt32(dr["Capacidad"]),
-                        HoraInicio = TimeSpan.Parse(dr["HoraInicio"].ToString()),
-                        HoraFin = TimeSpan.Parse(dr["HoraFin"].ToString())
+                    SqlCommand cmd = new SqlCommand("ObtenerSalas", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                    };
-                    listaSalas.Add(sala);
+                    cn.Open();
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        // Verifica los datos obtenidos
+                        int Id = Convert.ToInt32(dr["IdSala"]);
+                        string Nombre = dr["Nombre"].ToString();
+                        string Ubicacion = dr["Ubicacion"].ToString();
+                        int Capacidad = Convert.ToInt32(dr["Capacidad"]);
+                        TimeSpan HoraInicio = TimeSpan.Parse(dr["HoraInicio"].ToString());
+                        TimeSpan HoraFin = TimeSpan.Parse(dr["HoraFin"].ToString());
+
+
+                        Sala sala = new Sala
+                        {
+                            Id = Id,
+                            Nombre = Nombre,
+                            Ubicacion = Ubicacion,
+                            Capacidad = Capacidad,
+                            HoraInicio = HoraInicio,
+                            HoraFin = HoraFin
+                        };
+                        listaSalas.Add(sala);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                // Maneja la excepción y registra el error
+                Console.WriteLine($"Error al obtener salas: {ex.Message}");
             }
 
             return Json(listaSalas);
         }
     }
 
-}
+
 }

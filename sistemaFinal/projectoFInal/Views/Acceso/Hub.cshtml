@@ -9,13 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hub - Gestión de Salas</title>
 
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&display=swap" rel="stylesheet">
 
-    <!-- Estilos Personalizados -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <style>
         body, html {
             height: 100%;
@@ -27,7 +26,7 @@
         }
 
         .header, .footer {
-            background-color: #007bff; /* Azul */
+            background-color: #007bff; 
             color: white;
             padding: 20px;
             text-align: left;
@@ -48,7 +47,7 @@
 
         .main-content {
             flex: 1;
-            background-color: #f8f9fa; /* Fondo gris claro */
+            background-color: #f8f9fa; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -94,48 +93,538 @@
 <body>
 
     <div class="header">
-        <h2>Bienvenido, @ViewBag.NombreUsuario</h2>
+        <h2>Bienvenido, @ViewBag.NombreUsuario, con id, @TempData["IdUsuario"]</h2>
+
 
         <div class="text-right">
             <a class="logout-link" href="@Url.Action("CerrarSesion", "Home")">Salir</a>
         </div>
 
-        <div class="button-container">
-            <button class="btn btn-custom" id="btnMostrarSalas">Mostrar Salas</button>
-            <button class="btn btn-custom" id="btnReservarSala">Hacer una Reserva</button>
+        <div class="button-container text-center mt-3">
+            <button class="btn btn-primary" id="btnMostrarSalas">Mostrar Salas</button>
+            <button class="btn btn-secondary" id="btnReservarSala">Hacer una Reserva</button>
+            <button class="btn btn-secondary" id="btnNotificaciones" title="Ver Notificaciones">
+                <i class="fas fa-bell"></i>
+                <span id="contadorNotificaciones" class="badge badge-light"></span>
+            </button>
         </div>
     </div>
 
-    <!-- Contenido principal -->
-    <div class="main-content">
-        <div id="contentDisplay">
-            <!-- Aquí se mostrarán las salas o el formulario de reserva -->
-            <p>Aquí se mostrarán las salas...</p>
+    <div class="button-container text-center mt-3">
+        <button class="btn btn-secondary d-none" id="btnCrearReserva">Crear Reserva</button>
+        <button class="btn btn-secondary d-none" id="btnCrearReservaMultisala">Crear Reserva Multisala</button>
+        <button class="btn btn-secondary d-none" id="btnEliminarReserva">Eliminar Reserva</button>
+        <button class="btn btn-secondary d-none" id="btnVerReservas">Ver Reservas</button>
+        <button class="btn btn-secondary d-none" id="btnActualizarReserva">Actualizar Reserva</button>
+    </div>
+
+
+    <div class="main-content mt-4">
+        <div id="contentDisplay" class="container">
+            <p class="text-center">Aquí se mostrarán las salas...</p>
         </div>
     </div>
 
-    <div class="footer">
+    <div class="footer text-center mt-4">
         <p>Gestión de Salas de Conferencias</p>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- Script para cambiar el contenido -->
+    <!-- Scripts -->
     <script>
+
         $(document).ready(function () {
-            // Mostrar Salas por defecto
-            $('#contentDisplay').html('<p>Aquí se mostrarán las salas...</p>');
-
-            // Cambiar contenido según el botón
             $('#btnMostrarSalas').click(function () {
-                $('#contentDisplay').html('<p>Aquí se mostrarán las salas...</p>');
+                $.ajax({
+                    url: '@Url.Action("ObtenerSalas", "Salas")',
+                    type: 'GET',
+                    success: function (data) {
+                        let salasHtml = '<div class="row">';
+
+                        if (data.length > 0) {
+                            data.forEach(function (sala, index) {
+                                let salaInfo = `Sala número ${index + 1}`;
+                                salasHtml += `
+                                        <div class="col-md-4">
+                                            <div class="card mb-4 shadow-sm">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">${salaInfo}</h5>
+                                    `;
+
+                                Object.keys(sala).forEach(function (key) {
+                                    if (key !== "Id") {
+                                        salasHtml += `<p><strong>${key.charAt(0).toUpperCase() + key.slice(1)}:</strong> ${sala[key]}</p>`;
+                                    }
+                                });
+
+                                salasHtml += `
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `;
+                            });
+                        } else {
+                            salasHtml += '<p>No hay salas disponibles.</p>';
+                        }
+
+                        salasHtml += '</div>';
+                        $('#contentDisplay').html(salasHtml);
+                    },
+                    error: function () {
+                        $('#contentDisplay').html('<p>Ocurrió un error al cargar las salas.</p>');
+                    }
+                });
             });
 
+            // VER BOTONES DE RESERVAS
             $('#btnReservarSala').click(function () {
-                $('#contentDisplay').html('<p>Formulario de reserva...</p>');
+                $('.button-container .btn-secondary').toggleClass('d-none');  
+
+                if ($('#btnReservarSala').hasClass('d-none')) {
+                    $('#btnReservarSala').removeClass('d-none');
+                }
             });
+
+
+            // NOTIFICACIONES
+            $(document).ready(function () {
+                // Inicializar contador de notificaciones
+                actualizarContadorNotificaciones();
+
+                $('#btnNotificaciones').click(function () {
+                    obtenerNotificacionesNoLeidas();
+                });
+
+                function obtenerNotificacionesNoLeidas() {
+                    $.ajax({
+                        type: "GET",
+                        url: "/Reservas/ObtenerNotificacionesNoLeidas",
+                        data: { idUsuario: '@TempData["IdUsuario"]' },
+                        success: function (notificaciones) {
+                            if (notificaciones.length > 0) {
+                                let notificacionesTexto = "Tienes " + notificaciones.length + " notificaciones no leídas:\n\n";
+
+                                // Recorremos cada notificación
+                                notificaciones.forEach(function (notificacion, index) {
+                                    console.log("Notificación " + (index + 1) + ": ", notificacion);
+                                    notificacionesTexto += "Notificación " + (index + 1) + ":\n";
+
+                                    Object.keys(notificacion).forEach(function (key) {
+                                        notificacionesTexto += key + ": " + notificacion[key] + "\n";
+                                    });
+
+                                    notificacionesTexto += "\n";
+                                });
+
+                                alert(notificacionesTexto);  
+
+                                marcarNotificacionComoLeida();
+                            } else {
+                                alert("No tienes notificaciones no leídas.");
+                            }
+                        },
+                        error: function (error) {
+                            console.error("Error al obtener notificaciones:", error);
+                        }
+                    });
+                }
+
+                function marcarNotificacionComoLeida() {
+                    var idUsuario = '@TempData["IdUsuario"]'; 
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/Reservas/MarcarNotificacionComoLeida",
+                        data: { idUsuario: idUsuario },
+                        success: function () {
+                            console.log("Notificaciones marcadas como leídas.");
+                            actualizarContadorNotificaciones();
+                        },
+                        error: function (error) {
+                            console.error("Error al marcar notificaciones como leídas:", error);
+                        }
+                    });
+                }
+
+                function actualizarContadorNotificaciones() {
+                    $.ajax({
+                        type: "GET",
+                        url: "/Reservas/ObtenerNotificacionesNoLeidas",
+                        data: { idUsuario: '@TempData["IdUsuario"]' }, 
+                        success: function (notificaciones) {
+                            $('#contadorNotificaciones').text(notificaciones.length); 
+                        },
+                        error: function (error) {
+                            console.error("Error al actualizar el contador de notificaciones:", error);
+                        }
+                    });
+                }
+            });
+
+
+
+
+
+            $('#btnCrearReserva').click(function () {
+                $('#contentDisplay').html(`
+                <form id="formCrearReserva">
+                    <div class="form-group">
+                        <label for="numeroSala">Número de Sala:</label>
+                        <select id="numeroSala" class="form-control">
+                            <option value="1">Sala 1</option>
+                            <option value="2">Sala 2</option>
+                            <option value="3">Sala 3</option>
+                            <option value="4">Sala 4</option>
+                            <option value="5">Sala 5</option>
+                            <option value="6">Sala 6</option>
+                            <option value="7">Sala 7</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="horaInicio">Hora de Inicio:</label>
+                        <input type="time" id="horaInicio" class="form-control" min="10:00" max="17:00" value="10:00">
+                    </div>
+                    <div class="form-group">
+                        <label for="horaFin">Hora de Fin:</label>
+                        <input type="time" id="horaFin" class="form-control" min="10:00" max="17:00" value="11:00">
+                    </div>
+                    <div class="form-group">
+                        <label for="numeroAsistentes">Número de Asistentes:</label>
+                        <input type="number" id="numeroAsistentes" class="form-control" min="1" value="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="idUsuarioInput">Ingrese su ID de Usuario:</label>
+                        <input type="text" id="idUsuarioInput" class="form-control" placeholder="Ingrese su ID de Usuario">
+                    </div>
+                    <button type="submit" class="btn btn-success mt-3">Crear Reserva</button>
+                </form>
+            `);
+            });
+
+            $(document).on('submit', '#formCrearReserva', function (e) {
+                e.preventDefault();
+
+                let idSala = $('#numeroSala').val();
+                let horaInicio = $('#horaInicio').val();
+                let horaFin = $('#horaFin').val();
+                let numeroAsistentes = $('#numeroAsistentes').val();
+                let idUsuarioInput = $('#idUsuarioInput').val();
+
+                // VALIDACION HORA
+                if (horaFin <= horaInicio) {
+                    alert('La Hora de Fin debe ser posterior a la Hora de Inicio.');
+                    return;
+                }
+
+                // SACO EL ID DE TEMPDATA
+                let idUsuario = '@TempData["IdUsuario"]'; 
+
+                // NU NULL
+                if (idUsuario == null) {
+                    alert('No se pudo obtener el IdUsuario.');
+                    return;
+                }
+
+                // COMPARAR LA ID QUE PUSE
+                if (idUsuarioInput !== idUsuario) {
+                    alert('El ID de usuario ingresado no coincide con su ID de usuario.');
+                    return;
+                }
+
+                $.ajax({
+                    url: '/Reservas/CrearReserva', 
+                    type: 'POST',
+                    data: {
+                        idSala: idSala,
+                        horaInicio: horaInicio,
+                        horaFin: horaFin,
+                        numeroAsistentes: numeroAsistentes,
+                        prioridad: 0,
+                        idUsuario: idUsuario,
+                        multiSala: false,
+                        listaSalas: null
+                    },
+                    success: function (response) {
+
+                        console.log(response);
+                        if (response.exito) {
+                            alert('Reserva registrada con éxito.');
+                        } else {
+                            alert('Reserva falló en registrarse.');
+                        }
+                    },
+                    error: function () {
+                        alert('Ocurrió un error al procesar la reserva.');
+                    }
+                });
+            });
+
+
+
+            // CREACION MULTISALA
+            $('#btnCrearReservaMultisala').click(function () {
+                $('#contentDisplay').html(`
+                <form id="formCrearReservaMultisala">
+                    <div class="form-group">
+                        <label for="listaSalas">Lista de Salas (separadas por comas):</label>
+                        <input type="text" id="listaSalas" class="form-control" placeholder="Ejemplo: 1,2,3,4">
+                    </div>
+                    <div class="form-group">
+                        <label for="horaInicio">Hora de Inicio:</label>
+                        <input type="time" id="horaInicio" class="form-control" min="10:00" max="17:00" value="10:00">
+                    </div>
+                    <div class="form-group">
+                        <label for="horaFin">Hora de Fin:</label>
+                        <input type="time" id="horaFin" class="form-control" min="10:00" max="17:00" value="11:00">
+                    </div>
+                    <div class="form-group">
+                        <label for="numeroAsistentes">Número de Asistentes:</label>
+                        <input type="number" id="numeroAsistentes" class="form-control" min="1" value="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="idUsuarioInput">Ingrese su ID de Usuario:</label>
+                        <input type="text" id="idUsuarioInput" class="form-control" placeholder="Ingrese su ID de Usuario">
+                    </div>
+                    <button type="submit" class="btn btn-success mt-3">Crear Reserva Multisala</button>
+                </form>
+            `);
+            });
+
+            $(document).on('submit', '#formCrearReservaMultisala', function (e) {
+                e.preventDefault();
+
+                let listaSalasInput = $('#listaSalas').val();
+                let horaInicio = $('#horaInicio').val();
+                let horaFin = $('#horaFin').val();
+                let numeroAsistentes = $('#numeroAsistentes').val();
+                let idUsuarioInput = $('#idUsuarioInput').val();
+
+                if (horaFin <= horaInicio) {
+                    alert('La Hora de Fin debe ser posterior a la Hora de Inicio.');
+                    return;
+                }
+                // VALIDAR SALAS
+                let listaSalas = listaSalasInput.split(',').map(s => s.trim()).filter(s => {
+                    return /^\d+$/.test(s) && parseInt(s) >= 1 && parseInt(s) <= 7; 
+                });
+
+                if (listaSalas.length === 0) {
+                    alert('Por favor, ingrese una lista válida de salas (números del 1 al 7, separados por comas).');
+                    return;
+                }
+
+                // OBTENER ID USER
+                let idUsuario = '@TempData["IdUsuario"]';
+
+                if (idUsuario == null) {
+                    alert('No se pudo obtener el IdUsuario.');
+                    return;
+                }
+
+                if (idUsuarioInput !== idUsuario) {
+                    alert('El ID de usuario ingresado no coincide con su ID de usuario.');
+                    return;
+                }
+
+                $.ajax({
+                    url: '/Reservas/CrearReserva',  
+                    type: 'POST',
+                    data: {
+                        listaSalas: listaSalas.join(','), // Convertir el array de salas a una cadena
+                        horaInicio: horaInicio,
+                        horaFin: horaFin,
+                        numeroAsistentes: numeroAsistentes,
+                        prioridad: 0,
+                        idUsuario: idUsuario,
+                        multiSala: true, 
+                    },
+                    success: function (response) {
+                        if (response.exito) {
+                            alert('Reserva multisala registrada con éxito.');
+                        } else {
+                            alert('Reserva multisala falló en registrarse.');
+                        }
+                    },
+                    error: function () {
+                        alert('Ocurrió un error al procesar la reserva multisala.');
+                    }
+                });
+            });
+
+            $('#btnEliminarReserva').click(function () {
+                $('#contentDisplay').html(`
+                <form id="formEliminarReserva">
+                    <div class="form-group">
+                        <label for="idReserva">Ingrese el ID de la Reserva a Eliminar:</label>
+                        <input type="number" id="idReserva" class="form-control" placeholder="Ejemplo: 123" required>
+                    </div>
+                    <button type="submit" class="btn btn-danger mt-3">Eliminar Reserva</button>
+                </form>
+            `);
+            });
+
+            $(document).on('submit', '#formEliminarReserva', function (e) {
+                e.preventDefault();
+
+                let idReserva = $('#idReserva').val();
+
+                $.ajax({
+                    url: '/Reservas/EliminarReserva',
+                    type: 'POST',
+                    data: {
+                        idReserva: idReserva
+                    },
+                    success: function (response) {
+                        $('#contentDisplay').html(`<p>${response.mensaje}</p>`);
+                    },
+                    error: function () {
+                        alert('Ocurrió un error al procesar la eliminación de la reserva.');
+                    }
+                });
+            });
+
+
+            // Botón Ver Reservas
+            $('#btnVerReservas').click(function () {
+                let formHtml = `
+                        <form id="formVerReservas" class="text-center">
+                            <div class="form-group">
+                                <label for="numeroSala">Número de la Sala</label>
+                                <select class="form-control" id="numeroSala">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="btnConsultarReservas">Consultar</button>
+                        </form>
+                        <div id="reservasDisplay" class="mt-4"></div>
+                    `;
+                $('#contentDisplay').html(formHtml);
+            });
+
+            // CONSULTAR EN VER RESERVAS
+            $(document).on('click', '#btnConsultarReservas', function () {
+                let numeroSala = $('#numeroSala').val();
+
+                // CONTROLADOR VER RESERVA
+                $.ajax({
+                    url: '/Reservas/VerReservas',
+                    type: 'GET',
+                    data: { idSala: numeroSala },
+                    success: function (data) {
+                        let reservasHtml = '<div class="row">';
+
+                        if (data.length > 0) {
+                            data.forEach(function (reserva, index) {
+                                reservasHtml += `
+                                <div class="col-md-6">
+                                    <div class="card mb-4 shadow-sm">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Reserva ${index + 1}</h5>
+                            `;
+
+                                // RECORRER LAS KEYS DEL OBJETO
+                                Object.keys(reserva).forEach(function (key) {
+                                    let value = reserva[key];
+
+                                    // SOLO MOSTRAR COSAS CON VALORES
+                                    if (value !== null && value !== undefined && value !== '') {
+                                        let label = key.charAt(0).toUpperCase() + key.slice(1);
+
+                                        // AGREGAR LA COSA AL HTML
+                                        reservasHtml += `<p><strong>${label}:</strong> ${value}</p>`;
+                                    }
+                                });
+
+                                reservasHtml += `
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                            });
+                        } else {
+                            reservasHtml += '<p>No hay reservas para esta sala.</p>';
+                        }
+
+                        reservasHtml += '</div>';
+                        $('#reservasDisplay').html(reservasHtml);
+                    },
+                    error: function () {
+                        $('#reservasDisplay').html('<p>Ocurrió un error al consultar las reservas.</p>');
+                    }
+                });
+            });
+
+
+            // Botón Actualizar Reserva
+            $('#btnActualizarReserva').click(function () {
+                $('#contentDisplay').html(`
+                <form id="formActualizarReserva">
+                    <div class="form-group">
+                        <label for="idReserva">ID de la Reserva:</label>
+                        <input type="number" id="idReserva" class="form-control" placeholder="Ejemplo: 123" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nuevaHoraInicio">Nueva Hora de Inicio (HH:MM):</label>
+                        <input type="time" id="nuevaHoraInicio" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nuevaHoraFin">Nueva Hora de Fin (HH:MM):</label>
+                        <input type="time" id="nuevaHoraFin" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nuevaUbicacion">Nueva Ubicación (1-7):</label>
+                        <input type="number" id="nuevaUbicacion" class="form-control" min="1" max="7" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Actualizar Reserva</button>
+                </form>
+            `);
+            });
+
+            $(document).on('submit', '#formActualizarReserva', function (e) {
+                e.preventDefault();
+
+                let idReserva = $('#idReserva').val();
+                let nuevaHoraInicio = $('#nuevaHoraInicio').val();
+                let nuevaHoraFin = $('#nuevaHoraFin').val();
+                let nuevaUbicacion = $('#nuevaUbicacion').val();
+
+                if (nuevaHoraInicio >= nuevaHoraFin) {
+                    alert('La nueva hora de fin debe ser posterior a la nueva hora de inicio.');
+                    return;
+                }
+
+                $.ajax({
+                    url: '/Reservas/ActualizarReserva',
+                    type: 'POST',
+                    data: {
+                        idReserva: idReserva,
+                        nuevaHoraInicio: nuevaHoraInicio,
+                        nuevaHoraFin: nuevaHoraFin,
+                        nuevaUbicacion: nuevaUbicacion
+                    },
+                    success: function (response) {
+                        alert(response.mensajeSalida);
+                    },
+                });
+            });
+
+
+            // FUNCION PARA HORAS
+            function formatHora(timeSpan) {
+                const date = new Date(`1970-01-01T${timeSpan}`);
+                return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            }
         });
     </script>
+
 </body>
+
 </html>
